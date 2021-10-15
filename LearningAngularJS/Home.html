@@ -30,10 +30,16 @@
     <div>
         Department : {{ employee.department }}
     </div>
-
+    Default rows to display
+    <input type="number" step="1" ng-model="rowlimit" min="0" max="5" />
+    Sort Column
+    <select ng-model="sortColumn">
+        <option value="firstName">First Name ASC</option>
+        <option value="gender">Gender ASC</option>
+        <option value="department">Dept ASC</option>
+        <option value="-salary">Salary DESC</option>
+    </select>
     <table>
-        Default rows to display
-        <input type="number" step="1" ng-model="rowlimit" min="0" max="5" />
         <thead>
             <tr>
                 <th>First Name</th>
@@ -43,7 +49,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="emp in employees | limitTo:rowlimit">
+            <tr ng-repeat="emp in employees | limitTo:rowlimit | orderBy:sortColumn">
                 <td>{{ emp.firstName | uppercase}}</td>
                 <td>{{ emp.gender | lowercase }}</td>
                 <td>{{ emp.department }}</td>

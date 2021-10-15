@@ -10,9 +10,9 @@ var myController = function ($scope) {
 
     var employees = [
         { firstName: 'Emp1', gender: 'Male', department: 'IT',salary:55000.56 },
-        { firstName: 'Emp2', gender: 'Male', department: 'IT', salary: 65000.77 },
-        { firstName: 'Emp3', gender: 'Female', department: 'IT', salary: 85000.06 },
-        { firstName: 'Emp4', gender: 'Male', department: 'IT', salary: 55000.56 },
+        { firstName: 'Emp2', gender: 'Male', department: 'IT', salary: 45000.77 },
+        { firstName: 'Emp3', gender: 'Female', department: 'Accounts', salary: 85000.06 },
+        { firstName: 'Emp4', gender: 'Male', department: 'Customer Service', salary: 55000.56 },
         { firstName: 'Emp5', gender: 'Male', department: 'IT', salary: 65000.77 },
         { firstName: 'Emp6', gender: 'Female', department: 'IT', salary: 85000.06 }
     ];
@@ -36,6 +36,7 @@ var myController = function ($scope) {
     };
 
     $scope.rowlimit = 3;
+    $scope.sortColumn = "firstName";
 };
 
 myModule.controller("myController", myController);
