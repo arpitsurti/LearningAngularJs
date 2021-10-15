@@ -5,6 +5,7 @@
     <title>Home Page</title>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/Home.js"></script>
+    <link href="StyleSheet1.css" rel="stylesheet" />
 </head>
 <body ng-controller="myController">
     <div>
@@ -30,26 +31,38 @@
     <div>
         Department : {{ employee.department }}
     </div>
-    Default rows to display
-    <input type="number" step="1" ng-model="rowlimit" min="0" max="5" />
-    Sort Column
-    <select ng-model="sortColumn">
-        <option value="firstName">First Name ASC</option>
-        <option value="gender">Gender ASC</option>
-        <option value="department">Dept ASC</option>
-        <option value="-salary">Salary DESC</option>
-    </select>
+    <br />
+    <br />
+    <div>
+        Implementing custom paging and column sorting
+
+        Default rows to display
+        <input type="number" step="1" ng-model="rowlimit" min="0" max="5" />
+        Sort Column
+        <select ng-model="sortColumn">
+            <option value="firstName">First Name ASC</option>
+            <option value="gender">Gender ASC</option>
+            <option value="department">Dept ASC</option>
+            <option value="-salary">Salary DESC</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <div>
+        Search all employee data <input type="text" ng-model="searchData" />
+        <!--Type searchData.ClumnName for just particular column search-->
+    </div>
     <table>
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Gender</th>
-                <th>Dept</th>
-                <th>Salary</th>
+                <th ng-click="sortDate('firstName')"><div ng-class="sortClass('firstName')"></div>First Name</th>
+                <th ng-click="sortDate('gender')"><div ng-class="sortClass('gender')"></div>Gender</th>
+                <th ng-click="sortDate('department')"><div ng-class="sortClass('department')"></div>Dept</th>
+                <th ng-click="sortDate('salary')"><div ng-class="sortClass('salary')"></div>Salary</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="emp in employees | limitTo:rowlimit | orderBy:sortColumn">
+            <tr ng-repeat="emp in employees | limitTo:rowlimit | orderBy:sortColumn:reverseOrder | filter:searchData">
                 <td>{{ emp.firstName | uppercase}}</td>
                 <td>{{ emp.gender | lowercase }}</td>
                 <td>{{ emp.department }}</td>

@@ -37,6 +37,19 @@ var myController = function ($scope) {
 
     $scope.rowlimit = 3;
     $scope.sortColumn = "firstName";
+    $scope.reverseOrder = false;
+
+    $scope.sortDate = function (colName) {
+        $scope.reverseOrder = (colName == $scope.sortColumn ? !$scope.reverseOrder : false);
+        $scope.sortColumn = colName;
+    };
+
+    $scope.sortClass = function (colName) {
+        if ($scope.sortColumn == colName) {
+            return $scope.reverseOrder ? 'arrow-down' : 'arrow-up';
+        }
+        return '';
+    }
 };
 
 myModule.controller("myController", myController);
