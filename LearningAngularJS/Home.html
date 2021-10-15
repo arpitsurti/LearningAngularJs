@@ -20,6 +20,7 @@
         Department : <input type="text" ng-model="employee.department" />
     </div>
     <br />
+    <br />
     <div>
         First Name : {{ employee.firstName }}
     </div>
@@ -29,5 +30,46 @@
     <div>
         Department : {{ employee.department }}
     </div>
+
+    <table>
+        Default rows to display
+        <input type="number" step="1" ng-model="rowlimit" min="0" max="5" />
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Gender</th>
+                <th>Dept</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="emp in employees | limitTo:rowlimit">
+                <td>{{ emp.firstName | uppercase}}</td>
+                <td>{{ emp.gender | lowercase }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.salary | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Gender</th>
+                <th>Dept</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="lang in languages ">
+                <td>{{ lang.name | uppercase }}</td>
+                <td>{{ lang.likes }}</td>
+                <td>{{ lang.dislikes }}</td>
+                <td><input type="button" ng-click="incrementLikes(lang)" value="Like" /> | <input type="button" ng-click="incrementDislikes(lang)" value="Dislike" /></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
