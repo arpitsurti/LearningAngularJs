@@ -46,6 +46,10 @@
             <option value="-salary">Salary DESC</option>
         </select>
     </div>
+
+    <br />
+    <br />
+    <input type="checkbox" ng-model="hideSalary" /> Hide Salary
     <br />
     <br />
     <div>
@@ -58,7 +62,8 @@
                 <th ng-click="sortDate('firstName')"><div ng-class="sortClass('firstName')"></div>First Name</th>
                 <th ng-click="sortDate('gender')"><div ng-class="sortClass('gender')"></div>Gender</th>
                 <th ng-click="sortDate('department')"><div ng-class="sortClass('department')"></div>Dept</th>
-                <th ng-click="sortDate('salary')"><div ng-class="sortClass('salary')"></div>Salary</th>
+                <th ng-hide="hideSalary" ng-click="sortDate('salary')"><div ng-class="sortClass('salary')"></div>Salary</th>
+                <th ng-show="hideSalary">Salary</th>
             </tr>
         </thead>
         <tbody>
@@ -66,7 +71,8 @@
                 <td>{{ emp.firstName | uppercase}}</td>
                 <td>{{ emp.gender | lowercase }}</td>
                 <td>{{ emp.department }}</td>
-                <td>{{ emp.salary | currency }}</td>
+                <td ng-hide="hideSalary">{{ emp.salary | currency }}</td>
+                <td ng-show="hideSalary">#####</td>
             </tr>
         </tbody>
     </table>
@@ -90,5 +96,9 @@
             </tr>
         </tbody>
     </table>
+    <br />
+    <br />
+    Using include directive
+    <div ng-include="'EmployeeTable.html'"></div>
 </body>
 </html>
