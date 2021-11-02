@@ -100,5 +100,20 @@
     <br />
     Using include directive
     <div ng-include="'EmployeeTable.html'"></div>
+    <br />
+    <br />
+    Consuming web service 
+    <table>
+        <thead>
+            <tr>
+                <th>Vendor Name</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="vendor in vendors">
+            <tr>
+                <td>{{ vendor.VendorName}}</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

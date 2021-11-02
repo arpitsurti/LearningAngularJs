@@ -70,13 +70,25 @@
     <Content Include="EmployeeTable.html" />
     <Content Include="Home.html" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Home.js" />
+    <Content Include="SinglePageApp\companies.html" />
+    <Content Include="SinglePageApp\SingleAppJs.js" />
+    <Content Include="SinglePageApp\skills.html" />
+    <Content Include="SinglePageApp\home.html" />
+    <Content Include="index.html" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
+    <Content Include="WebService1.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsVendors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
